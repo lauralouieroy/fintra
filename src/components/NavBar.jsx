@@ -1,24 +1,32 @@
 import logo from "../assets/fintra-icon.png";
+import { FaBars, FaBell, FaUserCircle } from "react-icons/fa";
 
-function Navbar({ role }) {
+function Navbar({ role, toggleSidebar }) {
   return (
     <div className="navbar">
-      {/* LEFT: LOGO */}
-      <div className="logo">
-        <img src={logo} alt="FinTra Logo"  />
-        <h2>
-          <span className="fin">Fin</span>
-          <span className="tra">Tra</span>
-        </h2>
+      <div className="nav-left">
+        <div className="menu-icon" onClick={toggleSidebar}>
+          <FaBars />
+        </div>
+
+        <div className="search-bar">
+          <input placeholder="Search anything..." />
+        </div>
       </div>
 
-      {/* RIGHT: ACTIONS */}
-      <div className="nav-actions">
-        <span className="role-badge">
+      {/* RIGHT SIDE */}
+      <div className="nav-right">
+        <div className="role-dropdown">
           {role === "admin" ? "Administrator" : "Viewer"}
-        </span>
+        </div>
+
+        <div className="icon-btn">
+          <FaBell />
+          <span className="notif-badge">3</span>
+        </div>
 
         <button className="btn-outline">
+          <FaUserCircle />
           Profile
         </button>
 
@@ -28,6 +36,12 @@ function Navbar({ role }) {
       </div>
     </div>
   );
+
+
+  
 }
 
+
+
 export default Navbar;
+

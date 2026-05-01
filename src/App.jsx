@@ -11,14 +11,16 @@ import Dashboard from "./components/sections/Dashboard";
 import PaymentQR from "./components/sections/PaymentQR";
 import Bank from "./components/sections/Bank";
 import Credit from "./components/sections/Credit";
+import Sidebar from "./components/Sidebar";
+
 
 function App() {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
-
   const [role, setRole] = useState(null);
   const [showRoleModal, setShowRoleModal] = useState(false);
   const [showPasswordModal, setShowPasswordModal] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   /* PRELOADER */
   useEffect(() => {
@@ -111,16 +113,25 @@ return (
 
         {/* MAIN APP */}
         {role && (
-          <div className="app">
-            <Navbar role={role} />
+<div className="app-bg">
+  <div className="layout">
+<Sidebar isOpen={sidebarOpen} />
 
-            <div className="container">
-              <Dashboard />
-              <PaymentQR />
-              <Bank />
-              <Credit />
-            </div>
-          </div>
+<div className="main">
+  <Navbar
+    role={role}
+    toggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+  />
+
+  <div className={`content ${sidebarOpen ? "" : "expanded"}`}>
+    <Dashboard />
+    <PaymentQR />
+    <Bank />
+    <Credit />
+  </div>
+</div>
+  </div>
+</div>
         )}
       </>
     )}
