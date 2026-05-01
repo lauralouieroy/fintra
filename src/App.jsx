@@ -15,6 +15,7 @@ import Sidebar from "./components/Sidebar";
 
 
 function App() {
+  const [activePage, setActivePage] = useState("dashboard");
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const [role, setRole] = useState(null);
@@ -114,23 +115,31 @@ return (
         {/* MAIN APP */}
         {role && (
 <div className="app-bg">
-  <div className="layout">
-<Sidebar isOpen={sidebarOpen} />
+<div className="layout">
+  <Sidebar
+  isOpen={sidebarOpen}
+  activePage={activePage}
+  setActivePage={setActivePage}
+/>
 
-<div className="main">
-  <Navbar
-    role={role}
-    toggleSidebar={() => setSidebarOpen(!sidebarOpen)}
-  />
+  <div className={`main ${sidebarOpen ? "" : "collapsed"}`}>
+    <Navbar
+      role={role}
+      isOpen={sidebarOpen}
+      toggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+    />
 
-  <div className={`content ${sidebarOpen ? "" : "expanded"}`}>
-    <Dashboard />
-    <PaymentQR />
-    <Bank />
-    <Credit />
+  <div className="content">
+    {activePage === "dashboard" && <Dashboard />}
+    {activePage === "credits" && <Credit />}
+    {activePage === "payments" && <PaymentQR />}
+    {activePage === "bank" && <Bank />}
+    {activePage === "reports" && <div>Reports Coming Soon</div>}
+    {activePage === "users" && <div>Users Coming Soon</div>}
+    {activePage === "settings" && <div>Settings Coming Soon</div>}
+  </div>
   </div>
 </div>
-  </div>
 </div>
         )}
       </>

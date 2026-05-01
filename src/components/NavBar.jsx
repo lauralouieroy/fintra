@@ -1,12 +1,11 @@
-import logo from "../assets/fintra-icon.png";
-import { FaBars, FaBell, FaUserCircle } from "react-icons/fa";
+import { FaBars, FaBell, FaUserCircle, FaChevronLeft } from "react-icons/fa";
 
-function Navbar({ role, toggleSidebar }) {
+function Navbar({ role, toggleSidebar, isOpen }) {
   return (
     <div className="navbar">
       <div className="nav-left">
         <div className="menu-icon" onClick={toggleSidebar}>
-          <FaBars />
+          {isOpen ? <FaChevronLeft /> : <FaBars />}
         </div>
 
         <div className="search-bar">
@@ -14,7 +13,6 @@ function Navbar({ role, toggleSidebar }) {
         </div>
       </div>
 
-      {/* RIGHT SIDE */}
       <div className="nav-right">
         <div className="role-dropdown">
           {role === "admin" ? "Administrator" : "Viewer"}
@@ -27,7 +25,6 @@ function Navbar({ role, toggleSidebar }) {
 
         <button className="btn-outline">
           <FaUserCircle />
-          Profile
         </button>
 
         <button className="btn-primary">
@@ -36,10 +33,8 @@ function Navbar({ role, toggleSidebar }) {
       </div>
     </div>
   );
-
-
-  
 }
+
 
 
 
