@@ -1,0 +1,65 @@
+/* RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* FINTRA DESIGN TOKENS */
+:root {
+  --fintra-bg-light: #e6f7fb;
+  --fintra-bg-mint: #d7f5ee;
+  --fintra-bg-blue: #cfeeff;
+
+  --fintra-primary: #16EFAE;
+  --fintra-secondary: #33B6D6;
+  --fintra-accent: #7BC96F;
+  --fintra-coin: #FFBA65;
+
+  --fintra-text-dark: #0D2B45;
+  --fintra-text-soft: #5f7f96;
+}
+
+/* GLOBAL HTML */
+html {
+  scroll-behavior: smooth;
+}
+
+/* BODY */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+
+  background:
+    radial-gradient(circle at 15% 20%, rgba(51,182,214,0.25), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(126,211,107,0.25), transparent 40%),
+    linear-gradient(
+      180deg,
+      #7ec3e6 0%,
+      #9fd8ef 30%,
+      #c9f1e7 65%,
+      #8adf7b 100%
+    );
+
+  color: #0D2B45;
+}
+
+/* DEFAULTS */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
