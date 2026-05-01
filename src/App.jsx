@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
+import logo from "./assets/fintra-icon.png";
+
 import Navbar from "./components/Navbar";
 import RoleModal from "./components/RoleModal";
 import PasswordModal from "./components/PasswordModal";
@@ -70,7 +72,7 @@ return (
       <div className="preloader">
         <div className="preloader-content">
           <div className="preloader-logo">
-            <img src="/fintra-icon.png" className="logo-img" />
+            <img src={logo} alt="FinTra Logo"  />
           </div>
 
           <h1 className="preloader-name">

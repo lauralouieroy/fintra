@@ -1,10 +1,11 @@
+import logo from "./assets/fintra-icon.png";
+
 function Navbar({ role }) {
   return (
     <div className="navbar">
       {/* LEFT: LOGO */}
       <div className="logo">
-        <img src="/fintra-icon.png" alt="FinTra Logo" />
-
+        <img src={logo} alt="FinTra Logo"  />
         <h2>
           <span className="fin">Fin</span>
           <span className="tra">Tra</span>
