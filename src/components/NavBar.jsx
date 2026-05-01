@@ -1,4 +1,4 @@
-import logo from "./assets/fintra-icon.png";
+import logo from "../assets/fintra-icon.png";
 
 function Navbar({ role }) {
   return (
